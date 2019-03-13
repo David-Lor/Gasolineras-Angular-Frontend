@@ -1,0 +1,31 @@
+<h1>Buscar por ID</h1>
+
+<form (ngSubmit)="submitHandler()">
+  <div class="form-group col-md-2 gasolineraForm">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label for="idInput">
+          <span class="input-group-text" id="basic-addon3">ID</span>
+        </label>
+      </div>
+      <input type="text" class="form-control gasolineraInput" id="idInput" aria-describedby="basic-addon3" size="5" placeholder="1234" [(ngModel)]="idGasolinera" [ngModelOptions]="{standalone: true}"/>&nbsp;
+      <button class="btn btn-primary mb-2" type="submit">Buscar</button>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="gasolinera !== null">
+  <app-gasolinera [gasolinera]="gasolinera"></app-gasolinera>
+</div>
+
+<div *ngIf="noEncontrado === true">
+  <div class="alert alert-warning" role="alert">
+    La gasolinera no existe.
+  </div>
+</div>
+
+<div *ngIf="error === true">
+  <div class="alert alert-danger" role="alert">
+    No se ha podido obtener la gasolinera. Inténtalo de nuevo más tarde.
+  </div>
+</div>

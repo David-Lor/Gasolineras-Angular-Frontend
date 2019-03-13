@@ -1,0 +1,68 @@
+<div class="card w-75 mx-auto">
+  <div class="card-header">Gasolinera #{{gasolinera._id}}</div>
+  <div class="card-body">
+    <table class="table table-striped">
+
+      <tbody>
+      <tr>
+        <th scope="row">Marca</th>
+        <td>{{gasolinera.marca}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Dirección</th>
+        <td>{{gasolinera.direccion}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Horario</th>
+        <td>{{gasolinera.horario}}</td>
+      </tr>
+      <tr *ngIf="(gasolinera.margen | margenes) === true">
+        <th scope="row">Margen en la vía</th>
+        <td>{{gasolinera.margen | margenes}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Cód. Postal</th>
+        <td>{{gasolinera.codPostal}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Localidad</th>
+        <td>{{gasolinera.localidad}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Municipio</th>
+        <td>{{gasolinera.municipio}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Provincia</th>
+        <td>{{gasolinera.provincia}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Latitud</th>
+        <td>{{gasolinera.ubicacion[0]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Longitud</th>
+        <td>{{gasolinera.ubicacion[1]}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="table">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col" class="tableA">Carburante</th>
+        <th scope="col" class="tableB">Precio</th>
+      </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let carburante of gasolinera.carburantes">
+          <tr>
+            <th scope="row" class="tableA">{{carburante.carburante}}</th>
+            <td class="tableB">{{carburante.precio}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+
+  </div>
+</div>
